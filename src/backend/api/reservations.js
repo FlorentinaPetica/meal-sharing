@@ -8,7 +8,7 @@ router.get("/", async (request, response) => {
     try {
         console.log("in/api/reservations")
         const reservations = await knex("reservations").select("*");
-        response.send(`${reservations}`)
+        response.json(reservations)
       } catch (error) {
         response.status(500).end()
         throw error;     
@@ -19,7 +19,7 @@ router.get("/", async (request, response) => {
 router.post("/", async (request, response) => {
     try {
       const newReservation = await knex("reservations").insert(request.body)
-      response.send(`${newReservation}`)
+      response.json(newReservation)
     } catch (error) {
       response.status(500).end()
       throw error;     
