@@ -6,7 +6,6 @@ const knex = require("../database");
 //Returns all reviews
 router.get("/", async (request, response) => {
     try {
-        console.log("in/api/reviews")
         const reviews = await knex("reviews").select("*");
         response.json(reviews)
       } catch (error) {
