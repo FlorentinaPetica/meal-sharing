@@ -43,7 +43,7 @@ router.get("/", async (request, response) => {
             return meal;
           }
         });
-
+      }
         // maxPrice	Get meals that has a price smaller than maxPrice	Number	/api/meals?maxPrice=90
         if (maxPrice) {
           sortedMeals.where("price", "<", `${maxPrice}`);
@@ -71,8 +71,7 @@ router.get("/", async (request, response) => {
       } else {
         response.status(400).json({ error: "Request parameters not found" });
       }
-    }
-  } catch (error) {
+    } catch (error) {
     throw error;
   }
 });
