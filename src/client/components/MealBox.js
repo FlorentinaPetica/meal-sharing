@@ -18,7 +18,7 @@ function MealBox(props) {
       style={{
         backgroundColor: "#125447",
         borderRadius: "3px",
-        width:"fit-content",
+        width:"65%",
         display: "flex",
         flexDirection:"column",
         margin: "0 auto",
