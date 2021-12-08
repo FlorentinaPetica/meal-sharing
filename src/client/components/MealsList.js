@@ -24,9 +24,9 @@ const MealsList = () => {
         ) : (
           newMeals.map((meal) => {
             return (
-              <li key={meal.idmeals} >
+              <li key={meal.idmeals}>
                 <Link to={`/meals/${meal.idmeals}`}>
-                  <MealBox meal={meal} />
+                  <MealBox meal={meal} view={true} />
                 </Link>
               </li>
             );

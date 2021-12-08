@@ -9,7 +9,7 @@ function Home() {
       <img
         className="BannerImg"
         alt="Banner image with diffrent foods"
-        src="src\client\assets\images\meal-share-banner2.jpg"
+        src="https://cdn.tasteatlas.com/images/dishes/4e67bf18c38c4e8cbb36617b827ade5f.jpg?mw=1300"
       ></img>
     </>
   );

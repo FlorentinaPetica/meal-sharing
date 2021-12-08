@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import ReservationForm from "./ReservationForm";
 import MealBox from "./MealBox";
 
 function MealDetail({ match }) {
@@ -22,15 +21,12 @@ function MealDetail({ match }) {
     return <p>Loading meal...</p>;
   }
   if (meal.max_number_of_guests > meal.reserved || meal.reserved === null) {
-      meal.availability = true;
-    } else meal.availability = false;
-  console.log(meal);
+    meal.availability = true;
+  } else meal.availability = false;
 
   return (
     <div>
-      {meal.availability ? (<ReservationForm idmeals={match.params.id} />) : null }
-      <MealBox meal={meal} />
-      
+      <MealBox meal={meal} view={false} />
     </div>
   );
 }

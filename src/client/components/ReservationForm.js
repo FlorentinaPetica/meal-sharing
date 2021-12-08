@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 function ReservationForm({ idmeals }) {
-  const [id, setId] = useState("");
   const [createReservation, setCreateReservation] = useState({
     number_of_guests: "",
     meal_id: idmeals,
@@ -14,19 +13,18 @@ function ReservationForm({ idmeals }) {
   const addReservation = async (createReservation) => {
     setCreateReservation({ submitting: false });
 
-    const response = await fetch("https://meal-sharing-fp.herokuapp.com/api/reservations", {
+    const response = await fetch("./api/reservations", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(createReservation),
     });
 
     const data = await response.json();
-    setId(data[0]);
     setCreateReservation({ submitting: true });
 
     if (response.status === 200) {
       alert("You've booked a meal");
-      window.location.reload(false)
+      window.location.reload(false);
     } else {
       alert("Received unexpected error");
       console.error(
@@ -53,10 +51,9 @@ function ReservationForm({ idmeals }) {
         console.error(e);
       });
   };
-
+  
   return (
     <div className="Reservation">
-      <h3>Make a reservation</h3>
       <form onSubmit={handleSubmit} className="ReservationForm">
         <div>
           <label>
@@ -121,9 +118,7 @@ function ReservationForm({ idmeals }) {
             ></input>
           </label>
         </div>
-        <button
-          className="BookButton"
-        >
+        <button className="BookButton">
           {createReservation.submitting ? "New booking" : "Book"}
         </button>
       </form>

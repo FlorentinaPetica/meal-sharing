@@ -11,20 +11,18 @@ import MealDetail from "./components/MealDetail";
 function App() {
   return (
     <>
-
-    <Router>
-      <Navbar />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/meals" component={OurMeals} />
-        <Route exact path="/add" component={ShareMeal} />
-        <Route path="/meals/:id" component={MealDetail} />
-      </Switch>
-      <Footer />
-    </Router>
-    
-      </>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/meals" component={OurMeals} />
+          <Route exact path="/add" component={ShareMeal} />
+          <Route path="/meals/:id" component={MealDetail} />
+        </Switch>
+        <Footer />
+      </Router>
+    </>
   );
 }
 

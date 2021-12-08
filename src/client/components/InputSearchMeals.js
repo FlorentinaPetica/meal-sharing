@@ -43,7 +43,7 @@ function InputSearchMeals() {
         </label>
       </div>
       {filtred.length != 0 && (
-        <div class="searchResult" style={{ backgroundColor: "#fff" }}>
+        <div className="searchResult" style={{ backgroundColor: "#fff" }}>
           {filtred.map((meal) => (
             <Link key={meal.idmeals} to={`/meals/${meal.idmeals}`}>
               <h4 key={meal.idmeals}>{meal.title}</h4>

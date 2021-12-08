@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 
-const MealsContext = React.createContext();
+const ReviewsContext = React.createContext();
 
-const MealsProvider = ({ children }) => {
-  const [meals, setMeals] = useState([]);
-  const [titles, setTitles] = useState([]);
+const ReviewsProvider = ({ children }) => {
+  const [reviews, setReviews] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
 
-  const fetchMeals = async () => {
-    const API_URL = `./api/meals`;
+  const fetchReviews = async () => {
+    const API_URL = `./api/reviews`;
     try {
       await fetch(API_URL)
         .then((response) => {
@@ -20,9 +19,7 @@ const MealsProvider = ({ children }) => {
           }
         })
         .then((data) => {
-          const allTitles = data.map((data) => data.title)
-          setTitles(allTitles);
-          setMeals(data);
+          setReviews(data);
           setLoading(false);
         });
     } catch (error) {
@@ -35,19 +32,17 @@ const MealsProvider = ({ children }) => {
       setLoading(false);
     } else {
       setLoading(true);
-      fetchMeals();
+      fetchReviews();
     }
   }, [error]);
 
   return (
-    <MealsContext.Provider
-      value={{ meals, titles, setTitles, loading, error }}
-    >
+    <ReviewsContext.Provider value={{ reviews, loading }}>
       {children}
-    </MealsContext.Provider>
+    </ReviewsContext.Provider>
   );
 };
 
-export const useMeals = () => React.useContext(MealsContext);
+export const useReviews = () => React.useContext(ReviewsContext);
 
-export default MealsProvider;
+export default ReviewsProvider;

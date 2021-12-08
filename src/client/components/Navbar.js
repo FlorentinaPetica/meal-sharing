@@ -27,7 +27,6 @@ function Navbar() {
       </div>
       <div className="ContactNavLink">
         <ul>
-          {/* <li>Book Meals</li> */}
           <li>Contact</li>
           <li>Log in</li>
         </ul>

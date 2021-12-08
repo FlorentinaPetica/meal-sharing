@@ -18,6 +18,7 @@
 }
 
 .Navbar li {
+  font-size: 16px;
   display: inline;
   padding-right: 15px;
 }
@@ -33,6 +34,7 @@
 
 .BannerImg {
   width: 100%;
+  margin-bottom: 50px;
 }
 
 .shareMealForm {
@@ -97,7 +99,6 @@
 }
 
 .MealsSearch button {
-  /* border: none; */
   background: #fff;
   width: fit-content;
 }
@@ -118,17 +119,12 @@
 }
 
 .Reservation {
-  margin: 5px auto;
   display: flex;
-  text-align: center;
-  flex-direction: column;
   justify-content: center;
 }
 
 .ReservationForm {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
+  text-align: center;
 }
 
 .ReservationForm input {
@@ -140,6 +136,37 @@
 .ReservationForm span {
   display: block;
   text-align: left;
+}
+
+.ReviewForm input, textarea {
+  display: block;
+  padding-left: 5px;
+  /* width: 45%; */
+  margin-block: 10px;
+  margin-inline: 10px;
+}
+
+.ReviewContainer {
+  padding-inline: 15px;
+  color: #125447;
+  background-color: rgba(172, 194, 190, 0.7);
+  margin-inline: 10px;
+  margin-block-end: 10px;
+  border-radius: 5px;
+}
+
+.ButtonNone {
+  background: none;
+  text-align: center;
+}
+
+.ButtonNone:hoover {
+  background: none;
+  background-image: none;
+}
+
+.ButtonNone:active {
+  box-shadow: none;
 }
 
 .Footer {
