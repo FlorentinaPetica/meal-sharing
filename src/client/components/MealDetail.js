@@ -28,7 +28,7 @@ function MealDetail({ match }) {
 
   return (
     <div>
-      {meal.availability ? (<ReservationForm idmeals={match.params.id} />) : null }
+      {meal.availability ? <ReservationForm idmeals={match.params.id} /> : null}
       <MealBox meal={meal} />
       
     </div>
