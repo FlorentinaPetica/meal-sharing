@@ -6,9 +6,6 @@ function Navbar() {
     <nav className="Navbar">
       <div className="PagesNavLink">
         <ul>
-          {/* <Link to="/about">
-            <li>About</li>
-          </Link> */}
           <Link to="/meals">
             <li>Our Meals</li>
           </Link>

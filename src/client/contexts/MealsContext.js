@@ -4,7 +4,6 @@ const MealsContext = React.createContext();
 
 const MealsProvider = ({ children }) => {
   const [meals, setMeals] = useState([]);
-  const [titles, setTitles] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
 
@@ -20,8 +19,6 @@ const MealsProvider = ({ children }) => {
           }
         })
         .then((data) => {
-          const allTitles = data.map((data) => data.title)
-          setTitles(allTitles);
           setMeals(data);
           setLoading(false);
         });
@@ -40,9 +37,7 @@ const MealsProvider = ({ children }) => {
   }, [error]);
 
   return (
-    <MealsContext.Provider
-      value={{ meals, titles, setTitles, loading, error }}
-    >
+    <MealsContext.Provider value={{ meals, loading, error }}>
       {children}
     </MealsContext.Provider>
   );

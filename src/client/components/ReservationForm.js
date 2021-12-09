@@ -10,7 +10,7 @@ function ReservationForm({ idmeals }) {
     phone_number: "",
   });
 
-  const addReservation = async (createReservation) => {
+  const addReservation = async () => {
     setCreateReservation({ submitting: false });
 
     const response = await fetch("./api/reservations", {
@@ -51,7 +51,7 @@ function ReservationForm({ idmeals }) {
         console.error(e);
       });
   };
-  
+
   return (
     <div className="Reservation">
       <form onSubmit={handleSubmit} className="ReservationForm">

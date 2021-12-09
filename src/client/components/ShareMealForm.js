@@ -12,7 +12,7 @@ function ShareMealForm() {
     imageURL: "",
   });
 
-  const addMeal = async (createMeal) => {
+  const addMeal = async () => {
     setCreateMeal({ submitting: false });
 
     const response = await fetch("./api/meals", {
@@ -55,7 +55,7 @@ function ShareMealForm() {
         console.error(e);
       });
   };
-  
+
   return (
     <div
       style={{

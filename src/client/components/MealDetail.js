@@ -10,9 +10,7 @@ function MealDetail({ match }) {
   }, []);
 
   const fetchMeal = async () => {
-    const fetchItem = await fetch(
-      `https://meal-sharing-fp.herokuapp.com/api/meals/${match.params.id}`
-    );
+    const fetchItem = await fetch(`./api/meals/${match.params.id}`);
     const meal = await fetchItem.json();
     setMeal(meal[0]);
   };
@@ -22,7 +20,9 @@ function MealDetail({ match }) {
   }
   if (meal.max_number_of_guests > meal.reserved || meal.reserved === null) {
     meal.availability = true;
-  } else meal.availability = false;
+  } else {
+    meal.availability = false;
+  }
 
   return (
     <div>

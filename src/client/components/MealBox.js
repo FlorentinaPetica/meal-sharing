@@ -74,6 +74,7 @@ function MealBox(props) {
           margin: "0 auto",
           border: "1px solid #fff",
           borderRadius: "3px",
+          marginBottom: "20px",
         }}
       >
         <img
@@ -102,11 +103,7 @@ function MealBox(props) {
               >
                 Make a reservation
               </button>
-            ) : (
-              <button className="ButtonNone" disabled>
-                Reservation
-              </button>
-            )}
+            ) : null}
             <button
               className="ButtonNone"
               onClick={() => {
@@ -118,9 +115,22 @@ function MealBox(props) {
               />
               Reviews
             </button>
+            {container != "" && (
+              <button
+                className="ButtonNone"
+                style={{ width: "45px", marginRight: "10px" }}
+                onClick={() => {
+                  setContainer("");
+                }}
+              >
+                Close
+              </button>
+            )}
           </div>
         )}
-        {container === "addReservation" && <ReservationForm idmeals={idmeals} />}
+        {container === "addReservation" && (
+          <ReservationForm idmeals={idmeals} />
+        )}
         {container === "seeReviews" && <ReviewsList idmeals={idmeals} />}
         {container === "addReview" && <ReviewForm idmeals={idmeals} />}
       </div>

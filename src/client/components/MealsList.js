@@ -14,24 +14,25 @@ const MealsList = () => {
     } else meal.availability = false;
   });
 
+  if (loading) {
+    return <li>Loading...</li>;
+  }
+  if (error) {
+    return <li>{error}</li>;
+  }
+
   return (
     <div>
       <ul style={{ listStyleType: "none" }}>
-        {loading ? (
-          <li>Loading...</li>
-        ) : error ? (
-          <li>{error}</li>
-        ) : (
-          newMeals.map((meal) => {
-            return (
-              <li key={meal.idmeals}>
-                <Link to={`/meals/${meal.idmeals}`}>
-                  <MealBox meal={meal} view={true} />
-                </Link>
-              </li>
-            );
-          })
-        )}
+        {newMeals.map((meal) => {
+          return (
+            <li key={meal.idmeals}>
+              <Link to={`/meals/${meal.idmeals}`}>
+                <MealBox meal={meal} view={true} />
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

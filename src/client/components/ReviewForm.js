@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 function ReviewForm({ idmeals }) {
-
   const [createReview, setCreateReview] = useState({
     title: "",
     meal_id: idmeals,
@@ -10,7 +9,7 @@ function ReviewForm({ idmeals }) {
     created_date: new Date().toISOString(),
   });
 
-  const addReview = async (createReview) => {
+  const addReview = async () => {
     setCreateReview({ submitting: false });
 
     const response = await fetch("./api/reviews", {

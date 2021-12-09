@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 function Footer() {
-    return (
-        <div className="Footer" >
-            copyright
-        </div>
-    )
+  return (
+    <div className="Footer">
+      <p>copyright</p>
+    </div>
+  );
 }
 
-export default Footer
+export default Footer;

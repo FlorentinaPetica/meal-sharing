@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function InputSearchMeals() {
   const { meals } = useMeals();
-  const [filtred, setFiltred] = useState([]);
+  const [filtered, setFiltered] = useState([]);
   const [value, setValue] = useState("");
 
   const onChangeInput = (e) => {
@@ -14,12 +14,12 @@ function InputSearchMeals() {
     const filterTitles = meals.filter((meal) => {
       return meal.title.toLowerCase().includes(searchValue.toLowerCase());
     });
-    setFiltred(filterTitles);
+    setFiltered(filterTitles);
     setValue(searchValue);
   };
 
   const clearSearch = (e) => {
-    setFiltred([]);
+    setFiltered([]);
     setValue("");
   };
 
@@ -33,7 +33,7 @@ function InputSearchMeals() {
             placeholder="Search for meals"
             value={value}
           />
-          {filtred.length === 0 ? (
+          {value.length === 0 ? (
             <BsSearch style={{ paddingTop: "2px" }} />
           ) : (
             <button onClick={clearSearch} className="ClearSearch">
@@ -42,11 +42,11 @@ function InputSearchMeals() {
           )}
         </label>
       </div>
-      {filtred.length != 0 && (
+      {filtered.length != 0 && (
         <div className="searchResult" style={{ backgroundColor: "#fff" }}>
-          {filtred.map((meal) => (
+          {filtered.map((meal) => (
             <Link key={meal.idmeals} to={`/meals/${meal.idmeals}`}>
-              <h4 key={meal.idmeals}>{meal.title}</h4>
+              <h4>{meal.title}</h4>
             </Link>
           ))}
         </div>
