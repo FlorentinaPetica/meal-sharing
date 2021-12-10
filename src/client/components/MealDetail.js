@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MealBox from "./MealBox";
+import ReservationForm from "./ReservationForm";
 
 function MealDetail({ match }) {
   const [meal, setMeal] = useState({});
