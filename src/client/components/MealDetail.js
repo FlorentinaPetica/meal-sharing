@@ -26,13 +26,9 @@ function MealDetail({ match }) {
 
   return (
     <div>
-<<<<<<< HEAD
-      <MealBox meal={meal} view={false} />
-=======
       {meal.availability ? <ReservationForm idmeals={match.params.id} /> : null}
       <MealBox meal={meal} />
       
->>>>>>> fde9f77a084d4cbea385b584a9db5dc58f87edd6
     </div>
   );
 }

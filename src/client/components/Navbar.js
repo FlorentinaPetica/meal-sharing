@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/images/logo.svg"
 
 function Navbar() {
+
   return (
     <nav className="Navbar">
       <div className="PagesNavLink">
@@ -15,12 +17,7 @@ function Navbar() {
         </ul>
       </div>
       <div className="Logo">
-        <Link to="/">
-          <img
-            src="src\client\assets\images\meal-share-logo-bg.png"
-            style={{ width: "55px" }}
-          ></img>
-        </Link>
+        <Link to="/"><img src={logo} alt="Logo"/></Link>
       </div>
       <div className="ContactNavLink">
         <ul>
