@@ -1,9 +1,9 @@
 import React from "react";
+import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import logo from "../assets/images/logo.svg"
+import logo from "../../assets/images/logo.svg"
 
-function Navbar() {
-
+function NavbarMenu({ toggle }) {
   return (
     <nav className="Navbar">
       <div className="PagesNavLink">
@@ -17,7 +17,9 @@ function Navbar() {
         </ul>
       </div>
       <div className="Logo">
-        <Link to="/"><img src={logo} alt="Logo"/></Link>
+        <Link to="/">
+          <img src={logo} alt="Logo" />
+        </Link>
       </div>
       <div className="ContactNavLink">
         <ul>
@@ -25,8 +27,13 @@ function Navbar() {
           <li>Log in</li>
         </ul>
       </div>
+      <div className="Bars">
+        <FaBars
+          onClick={toggle}
+        />
+      </div>
     </nav>
   );
 }
 
-export default Navbar;
+export default NavbarMenu;

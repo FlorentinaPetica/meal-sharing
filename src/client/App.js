@@ -4,7 +4,7 @@ import About from "./pages/About";
 import Home from "./pages/Home";
 import ShareMeal from "./pages/ShareMeal";
 import OurMeals from "./pages/OurMeals";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer";
 import MealDetail from "./components/MealDetail";
 

@@ -15,6 +15,7 @@
   padding-left: 10%;
   padding-right: 10%;
   border-bottom: 2px solid #125447;
+  z-index: 10;
 }
 
 .Navbar li {
@@ -25,6 +26,15 @@
 
 .Navbar li:hover {
   font-weight: bolder;
+}
+
+.Bars {
+  display: none;
+  padding-bottom: 0;
+}
+
+.DropDownBar {
+  display: none;
 }
 
 .HomeSection {
@@ -138,7 +148,8 @@
   text-align: left;
 }
 
-.ReviewForm input, textarea {
+.ReviewForm input,
+textarea {
   display: block;
   padding-left: 5px;
   /* width: 45%; */
@@ -172,4 +183,70 @@
 .Footer {
   margin-top: auto;
   border-top: 2px solid #125447;
+}
+
+@media screen and (max-width: 1400px) {
+  /* #root {
+    padding-left: 25%;
+    padding-right: 25%;
+  } */
+}
+
+@media screen and (max-width: 750px) {
+  /* #root {
+    padding-left: 5%;
+    padding-right: 5%;
+  } */
+
+  .Bars,
+  .Close {
+    display: inline;
+    cursor: pointer;
+    font-size: 25px;
+  }
+
+  .PagesNavLink,
+  .ContactNavLink {
+    display: none;
+  }
+
+  .DropDownBar {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid #125447;
+    z-index: 999;
+    background: #d7ffd7;
+    opacity: 100%;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: 0.5s ease-in-out;
+  }
+  
+  .DropDownMenu {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10%;
+    padding-right: 10%;
+    align-items: center;
+  }
+
+  .DropDownLinks li {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 16px;
+    padding-bottom: 25px;
+  }
+
+  .DropDownLinks li:hover {
+    font-weight: bolder;
+  }
+
+  .DropDownLinks ul {
+    margin-top: 25px;
+    padding-bottom: 0;
+  }
 }

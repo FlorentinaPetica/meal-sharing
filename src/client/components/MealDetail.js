@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import MealBox from "./MealBox";
-import ReservationForm from "./ReservationForm";
 
 function MealDetail({ match }) {
   const [meal, setMeal] = useState({});
@@ -27,9 +26,7 @@ function MealDetail({ match }) {
 
   return (
     <div>
-      {meal.availability ? <ReservationForm idmeals={match.params.id} /> : null}
       <MealBox meal={meal} />
-      
     </div>
   );
 }
