@@ -12,7 +12,6 @@ const Navbar = () => {
         <div>
             <NavbarMenu isOpen={isOpen} toggle={toggle} />
             <DropDownMenu isOpen={isOpen} toggle={toggle} />
-            <DropDownMenu />
         </div>
     )
 }

@@ -48,31 +48,25 @@
 }
 
 .shareMealForm {
+  display: flex;
+  flex-direction: column;
   background-color: rgba(18, 84, 71, 0.6);
   max-width: 750px;
   margin: 0 auto;
-  padding-top: 15px;
+  padding-left: 20px;
+  padding-block: 15px;
   border-radius: 7px;
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-}
-
-.shareMealForm input,
-.shareMealForm textarea,
-.shareMealForm span {
-  font-size: 15px;
-  margin-left: 15px;
-  font-family: Arial, san-serif;
 }
 
 .shareMealForm input,
 .shareMealForm textarea {
+  font-family: Arial, san-serif;
+  font-size: 15px;
   width: 95%;
   background: #d7ffd7;
   border: 0;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
   border-radius: 4px;
+  margin-top: 3px;
   margin-bottom: 20px;
   padding: 3px;
 }
@@ -80,6 +74,7 @@
 .shareMealForm textarea:focus {
   background-color: #d7ffd7;
 }
+
 .shareMealForm textarea {
   height: 75px;
 }
@@ -128,19 +123,48 @@
   color: darkolivegreen;
 }
 
-.Reservation {
+.Meals {
   display: flex;
-  justify-content: center;
+  flex-flow: wrap;
+}
+
+.Meals > div {
+  width: 45%;
+  margin: 0 auto;
+}
+
+.MealboxContainer {
+  background-color: #125447;
+  border-radius: 3px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  color: #fff;
+  padding-block: 15px;
+  margin-block: 15px;
 }
 
 .ReservationForm {
   text-align: center;
 }
 
-.ReservationForm input {
+.Reservation {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.Reservation label {
   margin-bottom: 15px;
-  padding-left: 5px;
+  padding-block: 10px;
   display: block;
+  width: 250px;
+}
+
+.Reservation input {
+  padding-left: 5px;
+  padding-block: 5px;
+  width: 100%;
 }
 
 .ReservationForm span {
@@ -148,13 +172,36 @@
   text-align: left;
 }
 
-.ReviewForm input,
-textarea {
-  display: block;
+.ReviewForm {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: max-content;
+  align-items: center;
+}
+
+.ReviewFormInputs {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.ReviewFormInputs input {
+  width: 200px;
+  padding-block: 5px;
   padding-left: 5px;
-  /* width: 45%; */
+}
+
+.ReviewFormInputs input:last-child {
+  margin-left: 25px;
+}
+
+.ReviewForm textarea {
+  padding-left: 5px;
   margin-block: 10px;
   margin-inline: 10px;
+  align-self: center;
+  width: 100%;
+  height: 100px;
 }
 
 .ReviewContainer {
@@ -169,6 +216,7 @@ textarea {
 .ButtonNone {
   background: none;
   text-align: center;
+  border-radius: 0;
 }
 
 .ButtonNone:hoover {
@@ -185,18 +233,20 @@ textarea {
   border-top: 2px solid #125447;
 }
 
-@media screen and (max-width: 1400px) {
-  /* #root {
-    padding-left: 25%;
-    padding-right: 25%;
-  } */
-}
-
 @media screen and (max-width: 750px) {
-  /* #root {
-    padding-left: 5%;
-    padding-right: 5%;
-  } */
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  .Reservation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   .Bars,
   .Close {
@@ -224,7 +274,7 @@ textarea {
     left: 0;
     transition: 0.5s ease-in-out;
   }
-  
+
   .DropDownMenu {
     display: flex;
     justify-content: space-between;
@@ -238,7 +288,7 @@ textarea {
     margin: 0 auto;
     text-align: center;
     font-size: 16px;
-    padding-bottom: 25px;
+    padding-bottom: 15%;
   }
 
   .DropDownLinks li:hover {
@@ -246,7 +296,40 @@ textarea {
   }
 
   .DropDownLinks ul {
-    margin-top: 25px;
+    margin-top: 15%;
     padding-bottom: 0;
+  }
+
+  .Meals {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding-block: 15px;
+    margin-block: 15px;
+  }
+
+  .Meals > div {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .ReviewForm {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: max-content;
+    align-items: center;
+  }
+
+  .ReviewFormInputs {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ReviewFormInputs input:last-child {
+    margin-left: 0px;
+    margin-top: 20px;
+    margin-bottom: 10px;
   }
 }

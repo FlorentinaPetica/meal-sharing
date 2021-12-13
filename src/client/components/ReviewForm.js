@@ -50,8 +50,8 @@ function ReviewForm({ idmeals }) {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} className="ReviewForm">
+    <form onSubmit={handleSubmit} className="ReviewForm">
+      <div className="ReviewFormInputs">
         <input
           required
           type="text"
@@ -64,16 +64,6 @@ function ReviewForm({ idmeals }) {
           }
           value={createReview.title}
         ></input>
-        <textarea
-          placeholder="Description"
-          onChange={(e) =>
-            setCreateReview({
-              ...createReview,
-              description: e.target.value,
-            })
-          }
-          value={createReview.description}
-        ></textarea>
         <input
           required
           type="number"
@@ -86,9 +76,19 @@ function ReviewForm({ idmeals }) {
           }
           value={createReview.stars}
         ></input>
-        <button style={{ display: "flow", marginLeft: "10px" }}>Submit</button>
-      </form>
-    </div>
+      </div>
+      <textarea
+        placeholder="Description"
+        onChange={(e) =>
+          setCreateReview({
+            ...createReview,
+            description: e.target.value,
+          })
+        }
+        value={createReview.description}
+      ></textarea>
+      <button style={{ display: "flow", marginLeft: "10px" }}>Submit</button>
+    </form>
   );
 }
 

@@ -15,25 +15,23 @@ const MealsList = () => {
   });
 
   if (loading) {
-    return <li>Loading...</li>;
+    return <p>Loading...</p>;
   }
   if (error) {
-    return <li>{error}</li>;
+    return <p>{error}</p>;
   }
 
   return (
-    <div>
-      <ul style={{ listStyleType: "none" }}>
+    <div className="Meals">
         {newMeals.map((meal) => {
           return (
-            <li key={meal.idmeals}>
+            <div key={meal.idmeals}>
               <Link to={`/meals/${meal.idmeals}`}>
                 <MealBox meal={meal} view={true} />
               </Link>
-            </li>
+            </div>
           );
         })}
-      </ul>
     </div>
   );
 };

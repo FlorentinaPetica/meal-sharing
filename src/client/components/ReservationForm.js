@@ -53,8 +53,8 @@ function ReservationForm({ idmeals }) {
   };
 
   return (
-    <div className="Reservation">
-      <form onSubmit={handleSubmit} className="ReservationForm">
+    <form onSubmit={handleSubmit} className="ReservationForm">
+      <div className="Reservation">
         <div>
           <label>
             <span>Name</span>
@@ -118,11 +118,11 @@ function ReservationForm({ idmeals }) {
             ></input>
           </label>
         </div>
-        <button className="BookButton">
-          {createReservation.submitting ? "New booking" : "Book"}
-        </button>
-      </form>
-    </div>
+      </div>
+      <button className="BookButton">
+        {createReservation.submitting ? "New booking" : "Book"}
+      </button>
+    </form>
   );
 }
 

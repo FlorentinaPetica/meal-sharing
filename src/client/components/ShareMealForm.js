@@ -69,7 +69,6 @@ function ShareMealForm() {
         Add a new meal, to create a new event!
       </h3>
       <form
-        style={{ display: "flex", flexDirection: "column" }}
         className="shareMealForm"
         onSubmit={handleSubmit}
       >

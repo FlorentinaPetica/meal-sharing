@@ -3,6 +3,7 @@ const { DateTime } = require("luxon");
 import ReservationForm from "./ReservationForm";
 import ReviewsList from "./ReviewsList";
 import { BsFillEyeFill } from "react-icons/bs";
+import { FaTimes } from "react-icons/fa";
 import ReviewForm from "./ReviewForm";
 
 function MealBox(props) {
@@ -22,21 +23,7 @@ function MealBox(props) {
   const [container, setContainer] = useState("");
 
   return (
-    <div
-      style={{
-        backgroundColor: "#125447",
-        borderRadius: "3px",
-        width: "65%",
-        display: "flex",
-        flexDirection: "column",
-        margin: "0 auto",
-        color: "#fff",
-        paddingTop: "15px",
-        paddingBottom: "15px",
-        marginTop: "15px",
-        marginBottom: "15px",
-      }}
-    >
+    <div className="MealboxContainer">
       <div
         style={{
           paddingLeft: "15px",
@@ -94,7 +81,7 @@ function MealBox(props) {
             >
               Add Review
             </button>
-            {availability ? (
+            {availability && (
               <button
                 className="ButtonNone"
                 onClick={() => {
@@ -103,7 +90,7 @@ function MealBox(props) {
               >
                 Make a reservation
               </button>
-            ) : null}
+            )}
             <button
               className="ButtonNone"
               onClick={() => {
@@ -123,7 +110,7 @@ function MealBox(props) {
                   setContainer("");
                 }}
               >
-                Close
+                <FaTimes />
               </button>
             )}
           </div>
