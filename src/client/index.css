@@ -30,10 +30,10 @@ button {
   cursor:pointer;
   width:150px;
   border:none;
-  background:#125447;
-  background-image:linear-gradient(bottom, #125447 0%, #52e0c6 52%);
-  background-image:-moz-linear-gradient(bottom, #125447 0%, #47c4ad 52%);
-  background-image:-webkit-linear-gradient(bottom, #125447 0%, #2b9e87 52%);
+  background:#DE9F7E;
+  background-image:linear-gradient(bottom, #4b2917 0%, #DE9F7E 52%);
+  background-image:-moz-linear-gradient(bottom, #4d3d34 0%, #DE9F7E 52%);
+  background-image:-webkit-linear-gradient(bottom, #6e5549 0%, #DE9F7E 52%);
   color:#FFF;
   margin:0 0 5px;
   padding:10px;
