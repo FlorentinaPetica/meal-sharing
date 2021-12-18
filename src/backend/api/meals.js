@@ -5,18 +5,19 @@ const router = express.Router();
 const knex = require("../database");
 
 //Returns meal by id
+const selectFields = [
+  "idmeals",
+  "title",
+  "max_number_of_guests",
+  "price",
+  "createdAt",
+  "description",
+  "imageURL",
+];
 router.get("/:id", async (request, response) => {
   try {
     const meal = await knex("meals")
-      .select(
-        "idmeals",
-        "title",
-        "max_number_of_guests",
-        "price",
-        "createdAt",
-        "description",
-        "imageURL"
-      )
+      .select(...selectFields)
       .sum("reservations.number_of_guests as reserved")
       .where({ idmeals: request.params.id })
       .groupBy("idmeals")
@@ -38,7 +39,6 @@ router.get("/", async (request, response) => {
       "createdAfter",
       "limit",
       "availableReservations",
-      "imageURL"
     ];
     const requestQuerys = Object.keys(request.query);
     const matchQuerys = [];
@@ -49,15 +49,7 @@ router.get("/", async (request, response) => {
     });
 
     let sortedMeals = knex("meals")
-      .select(
-        "idmeals",
-        "title",
-        "max_number_of_guests",
-        "price",
-        "createdAt",
-        "description",
-        "imageURL"
-      )
+      .select(...selectFields)
       .sum("reservations.number_of_guests as reserved")
       .groupBy("idmeals")
       .leftJoin("reservations", "reservations.meal_id", "meals.idmeals");
@@ -66,11 +58,15 @@ router.get("/", async (request, response) => {
       request.query;
 
     if (matchQuerys.length === requestQuerys.length) {
+      if (availableReservations) {
+        sortedMeals
+          .having(knex.raw("max_number_of_guests > `reserved`"))
+          .orHavingNull(`reserved`);
+      }
       // maxPrice	Get meals that has a price smaller than maxPrice	Number	/api/meals?maxPrice=90
       if (maxPrice) {
         sortedMeals.where("price", "<", `${maxPrice}`);
       }
-
       // title	Get meals that partially match a title. Rød grød med will match the meal with the title Rød grød med fløde	String	/api/meals?title=Indian%20platter
       if (title) {
         sortedMeals.where("title", "like", `%${title}%`);
@@ -136,3 +132,4 @@ router.delete("/:id", async (request, response) => {
 });
 
 module.exports = router;
+
