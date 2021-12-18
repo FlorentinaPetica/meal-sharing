@@ -47,6 +47,31 @@
   margin-bottom: 50px;
 }
 
+.GridInfo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 3fr));
+  grid-template-rows: 1fr;
+  grid-gap: 15px;
+  margin: 5%;
+}
+
+.GridInfo > div {
+  height: 350px;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: 1fr;
+}
+
+.GridInfo > div:hover {
+  transition: 0.5s ease-in-out;
+  margin-top: -15px;
+  padding-bottom: 15px;
+}
+
+.GridInfo h2, p {
+  padding-inline: 15px;
+}
+
 .shareMealForm {
   display: flex;
   flex-direction: column;
@@ -126,23 +151,25 @@
 .Meals {
   display: flex;
   flex-flow: wrap;
+  padding-top: 25px;
 }
 
 .Meals > div {
-  width: 45%;
+  width: 50%;
   margin: 0 auto;
 }
 
 .MealboxContainer {
   background-color: #125447;
   border-radius: 3px;
-  width: 90%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
   color: #fff;
   padding-block: 15px;
   margin-block: 15px;
+  margin-top: 45px;
 }
 
 .ReservationForm {
@@ -273,6 +300,31 @@
 .SocialIcons svg:hover {
   color: #de9f7e;
   transition: color 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 1025px) {
+
+  .GridInfo {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    margin: 10%;
+  }
+
+  .GridInfo > div {
+    height: 150px;
+    display: grid;
+    grid-template-columns: 65% 35%;
+    grid-template-rows: 1fr;
+  }
+
+  .GridInfo > div:hover {
+  transition: 0.5s ease-in-out;
+  margin-top: 0;
+  padding-bottom: 0;
+  margin-inline: -15px;
+}
+
 }
 
 @media screen and (max-width: 750px) {

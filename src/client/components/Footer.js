@@ -98,6 +98,7 @@ const Footer = () => {
             Join
           </button>
           <div
+            className="SocialIcons"
             style={{
               display: "flex",
               alignItems: "stretch",

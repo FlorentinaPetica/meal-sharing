@@ -26,7 +26,7 @@ const MealsList = () => {
         {newMeals.map((meal) => {
           return (
             <div key={meal.idmeals}>
-              <Link to={`/meals/${meal.idmeals}`}>
+              <Link to={`/meals/${meal.idmeals}`} onClick={()=>{window.scrollTo(0, 0)}}>
                 <MealBox meal={meal} view={true} />
               </Link>
             </div>
