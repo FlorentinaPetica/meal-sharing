@@ -68,7 +68,8 @@
   padding-bottom: 15px;
 }
 
-.GridInfo h2, .GridInfo p {
+.GridInfo h2,
+.GridInfo p {
   padding-inline: 15px;
 }
 
@@ -301,7 +302,6 @@
 }
 
 @media screen and (max-width: 1025px) {
-
   h2 {
     font-size: 1.2rem;
   }
@@ -321,12 +321,11 @@
   }
 
   .GridInfo > div:hover {
-  transition: 0.5s ease-in-out;
-  margin-top: 0;
-  padding-bottom: 0;
-  margin-inline: -15px;
-}
-
+    transition: 0.5s ease-in-out;
+    margin-top: 0;
+    padding-bottom: 0;
+    margin-inline: -15px;
+  }
 }
 
 @media screen and (max-width: 750px) {
@@ -372,7 +371,7 @@
     flex-direction: column;
     border-bottom: 2px solid #125447;
     z-index: 999;
-    background: #d7ffd7;
+    background: #f0faf0;
     opacity: 100%;
     position: fixed;
     width: 100%;
@@ -415,15 +414,15 @@
     padding-block: 15px;
     margin-block: 15px;
   }
-  
+
   .Meals > div {
     width: 100%;
     margin: 0 auto;
   }
-  
-    .MealboxContainer {
-      width: 95%;
-    }
+
+  .MealboxContainer {
+    width: 95%;
+  }
 
   .ReviewForm {
     display: flex;

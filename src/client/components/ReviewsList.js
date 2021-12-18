@@ -7,7 +7,9 @@ function ReviewsList(props) {
 
   const newReviews = [...reviews];
 
-  const filter = newReviews.filter((review) => review.meal_id === props.idmeals);
+  const filter = newReviews.filter(
+    (review) => review.meal_id === props.idmeals
+  );
 
   return (
     <div style={{ display: "flex", flexDirection: "column-reverse" }}>

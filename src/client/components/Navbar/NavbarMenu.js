@@ -1,7 +1,7 @@
 import React from "react";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import logo from "../../assets/images/logo.svg"
+import logo from "../../assets/images/logo.svg";
 
 function NavbarMenu({ toggle }) {
   return (
@@ -28,9 +28,7 @@ function NavbarMenu({ toggle }) {
         </ul>
       </div>
       <div className="Bars">
-        <FaBars
-          onClick={toggle}
-        />
+        <FaBars onClick={toggle} />
       </div>
     </nav>
   );

@@ -25,8 +25,8 @@ const MealShareInfo = () => {
         <div style={{ backgroundColor: "rgb(256, 156, 110)" }}>
           <h2>Join the best home made meals in a cozy home!</h2>
           <p>
-            By booking one of our dining experience you get to share a meal and
-            meet new people!
+            By booking one of our meals you get to share a meal and meet new
+            people!
           </p>
         </div>
         <div
@@ -45,8 +45,8 @@ const MealShareInfo = () => {
             Feel with the fresh taste and understand the diffrent cultures!
           </h2>
           <p>
-            Book one of our exceptional meal and create unique
-            memories that will last you a lifetime!
+            Book one of our exceptional meal and create unique memories that
+            will last you a lifetime!
           </p>
         </div>
         <div

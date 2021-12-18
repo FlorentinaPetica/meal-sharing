@@ -68,10 +68,7 @@ function ShareMealForm() {
       <h3 style={{ textAlign: "center" }}>
         Add a new meal, to create a new event!
       </h3>
-      <form
-        className="shareMealForm"
-        onSubmit={handleSubmit}
-      >
+      <form className="shareMealForm" onSubmit={handleSubmit}>
         <label>
           <span>Meal title</span>
           <input
