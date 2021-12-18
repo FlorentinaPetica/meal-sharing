@@ -68,7 +68,7 @@
   padding-bottom: 15px;
 }
 
-.GridInfo h2, p {
+.GridInfo h2, .GridInfo p {
   padding-inline: 15px;
 }
 
@@ -161,14 +161,12 @@
 
 .MealboxContainer {
   background-color: #125447;
-  border-radius: 3px;
-  width: 70%;
+  border-radius: 5px;
+  width: 80%;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
   color: #fff;
-  padding-block: 15px;
-  margin-block: 15px;
   margin-top: 45px;
 }
 
@@ -304,6 +302,10 @@
 
 @media screen and (max-width: 1025px) {
 
+  h2 {
+    font-size: 1.2rem;
+  }
+
   .GridInfo {
     display: grid;
     grid-template-columns: 1fr;
@@ -312,7 +314,7 @@
   }
 
   .GridInfo > div {
-    height: 150px;
+    max-height: 200px;
     display: grid;
     grid-template-columns: 65% 35%;
     grid-template-rows: 1fr;
@@ -334,6 +336,17 @@
 
   h3 {
     font-size: 1rem;
+  }
+
+  .GridInfo {
+    padding: 5%;
+  }
+
+  .GridInfo > div {
+    max-height: 350px;
+    display: grid;
+    grid-template-columns: 55% 45%;
+    grid-template-rows: 1fr;
   }
 
   .Reservation {
@@ -402,11 +415,15 @@
     padding-block: 15px;
     margin-block: 15px;
   }
-
+  
   .Meals > div {
-    width: 95%;
+    width: 100%;
     margin: 0 auto;
   }
+  
+    .MealboxContainer {
+      width: 95%;
+    }
 
   .ReviewForm {
     display: flex;
