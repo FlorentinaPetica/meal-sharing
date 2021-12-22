@@ -4,6 +4,31 @@ const Knex = require("knex");
 const router = express.Router();
 const knex = require("../database");
 
+//Returns meal by id
+const selectFields = [
+  "idmeals",
+  "title",
+  "max_number_of_guests",
+  "price",
+  "createdAt",
+  "description",
+  "imageURL",
+];
+router.get("/:id", async (request, response) => {
+  try {
+    const meal = await knex("meals")
+      .select(...selectFields)
+      .sum("reservations.number_of_guests as reserved")
+      .where({ idmeals: request.params.id })
+      .groupBy("idmeals")
+      .leftJoin("reservations", "reservations.meal_id", "meals.idmeals");
+
+    response.json(meal);
+  } catch (error) {
+    throw error;
+  }
+});
+
 //Returns all meals
 router.get("/", async (request, response) => {
   try {
@@ -23,55 +48,48 @@ router.get("/", async (request, response) => {
       }
     });
 
-    let sortedMeals = knex("meals");
+    let sortedMeals = knex("meals")
+      .select(...selectFields)
+      .sum("reservations.number_of_guests as reserved")
+      .groupBy("idmeals")
+      .leftJoin("reservations", "reservations.meal_id", "meals.idmeals");
 
     const { maxPrice, title, createdAfter, limit, availableReservations } =
       request.query;
 
     if (matchQuerys.length === requestQuerys.length) {
       if (availableReservations) {
-        let reserved = await knex("meals")
-          .select("title", "max_number_of_guests")
-          .sum("reservations.number_of_guests as reserved")
-          .groupBy("idmeals")
-          .leftJoin("reservations", "reservations.meal_id", "meals.idmeals");
-        sortedMeals = reserved.filter((meal) => {
-          if (
-            meal.max_number_of_guests > meal.reserved ||
-            meal.reserved === null
-          ) {
-            return meal;
-          }
-        });
+        sortedMeals
+          .having(knex.raw("max_number_of_guests > `reserved`"))
+          .orHavingNull(`reserved`);
       }
-        // maxPrice	Get meals that has a price smaller than maxPrice	Number	/api/meals?maxPrice=90
-        if (maxPrice) {
-          sortedMeals.where("price", "<", `${maxPrice}`);
-        }
-
-        // title	Get meals that partially match a title. Rød grød med will match the meal with the title Rød grød med fløde	String	/api/meals?title=Indian%20platter
-        if (title) {
-          sortedMeals.where("title", "like", `%${title}%`);
-        }
-        // createdAfter	Get meals that has been created after the date /api/meals?createdAfter=2019-04-05
-        if (createdAfter) {
-          sortedMeals.where("createdAt", ">", `${createdAfter}`);
-        }
-        // limit	Only specific number of meals	Number /api/meals?limit=4
-        if (limit) {
-          sortedMeals.limit(`${limit}`);
-        }
-        if (sortedMeals < 1) {
-          return response.status(200).json({ Message: "No meals found" });
-        }
-
-        const data = await sortedMeals;
-
-        response.json(data);
-      } else {
-        response.status(400).json({ error: "Request parameters not found" });
+      // maxPrice	Get meals that has a price smaller than maxPrice	Number	/api/meals?maxPrice=90
+      if (maxPrice) {
+        sortedMeals.where("price", "<", `${maxPrice}`);
       }
-    } catch (error) {
+      // title	Get meals that partially match a title. Rød grød med will match the meal with the title Rød grød med fløde	String	/api/meals?title=Indian%20platter
+      if (title) {
+        sortedMeals.where("title", "like", `%${title}%`);
+      }
+      // createdAfter	Get meals that has been created after the date /api/meals?createdAfter=2019-04-05
+      if (createdAfter) {
+        sortedMeals.where("createdAt", ">", `${createdAfter}`);
+      }
+      // limit	Only specific number of meals	Number /api/meals?limit=4
+      if (limit) {
+        sortedMeals.limit(`${limit}`);
+      }
+      if (sortedMeals < 1) {
+        return response.status(200).json({ Message: "No meals found" });
+      }
+
+      const data = await sortedMeals;
+
+      response.json(data);
+    } else {
+      response.status(400).json({ error: "Request parameters not found" });
+    }
+  } catch (error) {
     throw error;
   }
 });
@@ -80,19 +98,9 @@ router.get("/", async (request, response) => {
 router.post("/", async (request, response) => {
   try {
     const newMeal = await knex("meals").insert(request.body);
-    response.send(`${newMeal}`);
+    response.json(newMeal);
   } catch (error) {
     response.status(500).end();
-    throw error;
-  }
-});
-
-//Returns meal by id
-router.get("/:id", async (request, response) => {
-  try {
-    const meal = await knex("meals").where({ idmeals: request.params.id });
-    response.json(meal);
-  } catch (error) {
     throw error;
   }
 });
@@ -124,3 +132,4 @@ router.delete("/:id", async (request, response) => {
 });
 
 module.exports = router;
+

@@ -1,3 +1,449 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#root {
+  color: #125447;
+  display: flex;
+  flex-direction: column;
+}
+
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10%;
+  padding-right: 10%;
+  border-bottom: 2px solid #125447;
+  z-index: 10;
+}
+
+.Navbar li {
+  font-size: 16px;
+  display: inline;
+  padding-right: 15px;
+}
+
+.Navbar li:hover {
+  font-weight: bolder;
+}
+
+.Bars {
+  display: none;
+  padding-bottom: 0;
+}
+
+.DropDownBar {
+  display: none;
+}
+
+.HomeSection {
+  text-align: center;
+  padding: 35px;
+}
+
+.BannerImg {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.GridInfo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 3fr));
+  grid-template-rows: 1fr;
+  grid-gap: 15px;
+  margin: 5%;
+}
+
+.GridInfo > div {
+  height: 350px;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: 1fr;
+}
+
+.GridInfo > div:hover {
+  transition: 0.5s ease-in-out;
+  margin-top: -15px;
+  padding-bottom: 15px;
+}
+
+.GridInfo h2,
+.GridInfo p {
+  padding-inline: 15px;
+}
+
+.shareMealForm {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(18, 84, 71, 0.6);
+  max-width: 750px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-block: 15px;
+  border-radius: 7px;
+}
+
+.shareMealForm input,
+.shareMealForm textarea {
+  font-family: Arial, san-serif;
+  font-size: 15px;
+  width: 95%;
+  background: #d7ffd7;
+  border: 0;
+  border-radius: 4px;
+  margin-top: 3px;
+  margin-bottom: 20px;
+  padding: 3px;
+}
+.shareMealForm input:focus,
+.shareMealForm textarea:focus {
+  background-color: #d7ffd7;
+}
+
+.shareMealForm textarea {
+  height: 75px;
+}
+
+.MealsSearch {
+  margin: 0 auto;
+  text-align: center;
+  width: fit-content;
+  background-color: #fff;
+  border: 1px solid #125447;
+  font-weight: bolder;
+  border-radius: 5px;
+}
+
+.MealsSearch:focus-within {
+  margin: 0 auto;
+  text-align: center;
+  width: fit-content;
+  background-color: #fff;
+  border: 3px solid #125447;
+  border-radius: 5px;
+}
+
+.MealsSearch label {
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.MealsSearch button {
+  background: #fff;
+  width: fit-content;
+}
+
+.MealsSearchInput {
+  background: none;
+  border: none;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.MealsSearchInput:focus {
+  outline: none;
+}
+
+.searchResult a:hover {
+  color: darkolivegreen;
+}
+
+.Meals {
+  display: flex;
+  flex-flow: wrap;
+  padding-top: 25px;
+}
+
+.Meals > div {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.MealboxContainer {
+  background-color: #125447;
+  border-radius: 5px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  color: #fff;
+  margin-top: 45px;
+}
+
+.ReservationForm {
+  text-align: center;
+}
+
+.Reservation {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.Reservation label {
+  margin-bottom: 15px;
+  padding-block: 10px;
+  display: block;
+  width: 250px;
+}
+
+.Reservation input {
+  padding-left: 5px;
+  padding-block: 5px;
+  width: 100%;
+}
+
+.ReservationForm span {
+  display: block;
+  text-align: left;
+}
+
+.ReviewForm {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: max-content;
+  align-items: center;
+}
+
+.ReviewFormInputs {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.ReviewFormInputs input {
+  width: 200px;
+  padding-block: 5px;
+  padding-left: 5px;
+}
+
+.ReviewFormInputs input:last-child {
+  margin-left: 25px;
+}
+
+.ReviewForm textarea {
+  padding-left: 5px;
+  margin-block: 10px;
+  margin-inline: 10px;
+  align-self: center;
+  width: 100%;
+  height: 100px;
+}
+
+.ReviewContainer {
+  padding-inline: 15px;
+  color: #125447;
+  background-color: rgba(172, 194, 190, 0.7);
+  margin-inline: 10px;
+  margin-block-end: 10px;
+  border-radius: 5px;
+}
+
+.ButtonNone {
+  background: none;
+  text-align: center;
+  border-radius: 0;
+}
+
+.ButtonNone:hoover {
+  background: none;
+  background-image: none;
+}
+
+.ButtonNone:active {
+  box-shadow: none;
+}
+
+.FooterContainer {
+  margin-top: auto;
+}
+
+.Footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.Footer h3 {
+  background-color: #125447;
+  color: #fff;
+  margin-block-start: 0;
+  padding-top: 25px;
+  padding-inline: 15px;
+  padding-bottom: 5px;
+  margin-bottom: 30px;
+}
+
+.Footer p {
+  padding-inline: 15px;
+}
+
+.Footer input {
+  background: none;
+  border: none;
+  border-bottom: 2px solid #de9f7e;
+  width: 250px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.Footer input:focus {
+  background: none;
+  outline: none;
+  width: 270px;
+  font-size: 17px;
+  border-bottom: 3px solid rgb(131, 83, 83);
+  box-shadow: 3px 5px 3px 0px rgba(131, 83, 83, 0.75);
+  transition: ease-in-out, width 0.35s ease-in-out;
+}
+
+.SocialIcons svg:hover {
+  color: #de9f7e;
+  transition: color 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 1025px) {
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .GridInfo {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    margin: 10%;
+  }
+
+  .GridInfo > div {
+    max-height: 200px;
+    display: grid;
+    grid-template-columns: 65% 35%;
+    grid-template-rows: 1fr;
+  }
+
+  .GridInfo > div:hover {
+    transition: 0.5s ease-in-out;
+    margin-top: 0;
+    padding-bottom: 0;
+    margin-inline: -15px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  .GridInfo {
+    padding: 5%;
+  }
+
+  .GridInfo > div {
+    max-height: 350px;
+    display: grid;
+    grid-template-columns: 55% 45%;
+    grid-template-rows: 1fr;
+  }
+
+  .Reservation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Bars,
+  .Close {
+    display: inline;
+    cursor: pointer;
+    font-size: 25px;
+  }
+
+  .PagesNavLink,
+  .ContactNavLink {
+    display: none;
+  }
+
+  .DropDownBar {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid #125447;
+    z-index: 999;
+    background: #f0faf0;
+    opacity: 100%;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: 0.5s ease-in-out;
+  }
+
+  .DropDownMenu {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10%;
+    padding-right: 10%;
+    align-items: center;
+  }
+
+  .DropDownLinks li {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 16px;
+    padding-bottom: 15%;
+  }
+
+  .DropDownLinks li:hover {
+    font-weight: bolder;
+  }
+
+  .DropDownLinks ul {
+    margin-top: 15%;
+    padding-bottom: 0;
+  }
+
+  .Meals {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding-block: 15px;
+    margin-block: 15px;
+  }
+
+  .Meals > div {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .MealboxContainer {
+    width: 95%;
+  }
+
+  .ReviewForm {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: max-content;
+    align-items: center;
+  }
+
+  .ReviewFormInputs {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ReviewFormInputs input:last-child {
+    margin-left: 0px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .Footer {
+    flex-direction: column;
+  }
 }

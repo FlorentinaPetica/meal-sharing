@@ -1,52 +1,52 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-@import 'theme.css';
+@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+@import "theme.css";
 * {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Questrial", sans-serif;
   box-sizing: border-box;
 }
 
 #root {
-  padding-left: 30%;
-  padding-right: 30%;
   height: 100vh;
 }
 
 body {
   margin: 0;
-  font-size: 17px;
+  background-color: #f0faf0;
 }
 
 ul {
   list-style: none;
   padding: 0;
+  font-size: 14px;
   margin: 0;
 }
 
 a {
   text-decoration: none;
-  color: #2d3233;
+  color: #125447;
 }
 
 button {
-  background-color: #3e99c0;
-  border-radius: 8px;
-  border-width: 0px;
-  font-weight: 295;
-  color: rgb(255, 255, 255);
-  padding: 5px;
-  font-size: 17px;
+  cursor: pointer;
+  width: 150px;
+  border: none;
+  background: #de9f7e;
+  background-image: linear-gradient(bottom, #4b2917 0%, #de9f7e 52%);
+  background-image: -moz-linear-gradient(bottom, #4d3d34 0%, #de9f7e 52%);
+  background-image: -webkit-linear-gradient(bottom, #6e5549 0%, #de9f7e 52%);
+  color: #fff;
+  margin: 0 0 5px;
+  padding: 10px;
+  border-radius: 5px;
 }
-
-@media screen and (max-width: 1400px) {
-  #root {
-    padding-left: 30%;
-    padding-right: 30%;
-  }
+button:hover {
+  background-image: linear-gradient(bottom, #125447 0%, #58b8a5 52%);
+  background-image: -moz-linear-gradient(bottom, #62a195 0%, #125447 52%);
+  background-image: -webkit-linear-gradient(bottom, #3f615a 0%, #125447 52%);
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 }
-
-@media screen and (max-width: 750px) {
-  #root {
-    padding-left: 0;
-    padding-right: 0;
-  }
+button:active {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
 }
